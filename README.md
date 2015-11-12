@@ -2,11 +2,13 @@
 
 A simple implement of my design,only onboarding animation now
 
-![My implement][https://github.com/MartinRGB/MTPrivateTrainerAnimation/blob/master/implement.gif?raw=true]
-Myimplement
+![My implement](https://github.com/MartinRGB/MTPrivateTrainerAnimation/blob/master/implement.gif?raw=true)
+
+My implement
 
 
 ![My design](https://github.com/MartinRGB/MTPrivateTrainerAnimation/blob/master/Design.gif?raw=true)
+
 [My Design](https://dribbble.com/shots/2346124-Private-Trainer-Course-List)
 
 This is a swift exercise of Private Trainer's Onboarding Animation(It is also show the course category of this app),user will see this anim if he is not login.
