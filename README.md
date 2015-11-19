@@ -1,7 +1,6 @@
 # MTPrivateTrainerAnimation
 
 ##Android Versioin:[DWPrivateTrainerAnimation](https://github.com/DavidWangTM/DWPrivateTrainerAnimation)
-
 ##thanks for [DavidWangTM](https://github.com/DavidWangTM)'s work!
 
 A simple implement of my design,only Onboarding Controller Now,going to write some controller custom transition
