@@ -1,6 +1,6 @@
 # MTPrivateTrainerAnimation
 
-A simple implement of my design,only onboarding animation now
+A simple implement of my design,only Onboarding Controller Now,going to write some controller custom transition
 
 ![My implement](https://github.com/MartinRGB/MTPrivateTrainerAnimation/blob/master/implement.gif?raw=true)
 
@@ -16,3 +16,9 @@ This is a swift exercise of Private Trainer's Onboarding Animation(It is also sh
 Had spent so many time on implementing other designer's design.This time try to write code for myself.I have myself's design files,so I can get the right value of animation.
 
 Not much logic code,just some animation adjustment when viewwillappear,will spend some time making the tableview part.
+
+Roadmap:
+
+1.Implement all the design (WIP)
+2.Seperate the FAB component
+3.Package/Refactoring At last
