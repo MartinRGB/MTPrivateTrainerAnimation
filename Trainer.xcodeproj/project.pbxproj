@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E9D6A541BF3382300BCCE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */; };
-		2E9D6A561BF3382300BCCE55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A551BF3382300BCCE55 /* ViewController.swift */; };
+		2E9D6A561BF3382300BCCE55 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */; };
 		2E9D6A591BF3382300BCCE55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D6A571BF3382300BCCE55 /* Main.storyboard */; };
 		2E9D6A5B1BF3382300BCCE55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D6A5A1BF3382300BCCE55 /* Assets.xcassets */; };
 		2E9D6A5E1BF3382300BCCE55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D6A5C1BF3382300BCCE55 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		2E9D6A501BF3382300BCCE55 /* Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2E9D6A551BF3382300BCCE55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		2E9D6A581BF3382300BCCE55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E9D6A5A1BF3382300BCCE55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E9D6A5D1BF3382300BCCE55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				2E9D6A521BF3382300BCCE55 /* Trainer */,
-				2E9D6A671BF3382300BCCE55 /* TrainerTests */,
 				2E9D6A721BF3382300BCCE55 /* TrainerUITests */,
 				2E9D6A511BF3382300BCCE55 /* Products */,
 			);
@@ -98,11 +97,12 @@
 			isa = PBXGroup;
 			children = (
 				2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */,
-				2E9D6A551BF3382300BCCE55 /* ViewController.swift */,
+				2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */,
 				2E9D6A571BF3382300BCCE55 /* Main.storyboard */,
 				2E9D6A5A1BF3382300BCCE55 /* Assets.xcassets */,
 				2E9D6A5C1BF3382300BCCE55 /* LaunchScreen.storyboard */,
 				2E9D6A5F1BF3382300BCCE55 /* Info.plist */,
+				2E9D6A671BF3382300BCCE55 /* TrainerTests */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -114,7 +114,7 @@
 				2E9D6A6A1BF3382300BCCE55 /* Info.plist */,
 			);
 			path = TrainerTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		2E9D6A721BF3382300BCCE55 /* TrainerUITests */ = {
 			isa = PBXGroup;
@@ -256,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E9D6A561BF3382300BCCE55 /* ViewController.swift in Sources */,
+				2E9D6A561BF3382300BCCE55 /* OnBoardingViewController.swift in Sources */,
 				2E9D6A541BF3382300BCCE55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +482,7 @@
 				2E9D6A7A1BF3382300BCCE55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E9D6A7B1BF3382300BCCE55 /* Build configuration list for PBXNativeTarget "TrainerTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +491,7 @@
 				2E9D6A7D1BF3382300BCCE55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E9D6A7E1BF3382300BCCE55 /* Build configuration list for PBXNativeTarget "TrainerUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +500,7 @@
 				2E9D6A801BF3382300BCCE55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
