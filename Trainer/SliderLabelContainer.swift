@@ -20,6 +20,7 @@ enum SliderLabelContainerType{
 class SliderLabelContainer: UIView {
 
     var singleDigitScroll:UIScrollView!
+    
     private var scrollType:SliderLabelContainerType = SliderLabelContainerType.SingleDigitType
     
     //Slider ScrollView的初始化
@@ -49,7 +50,6 @@ class SliderLabelContainer: UIView {
     //Animation Part
     func scrollToNum(num:Int){
         if scrollType == .SingleDigitType{
-            
             self.singleDigitScroll.contentOffset = CGPointMake(0, CGRectGetHeight(self.bounds) * CGFloat(num))
             
 //            UIView.animateWithDuration(0.85, animations: { () -> Void in
@@ -59,7 +59,6 @@ class SliderLabelContainer: UIView {
             
         }
         else if scrollType == .TensDigitType{
-            
             self.singleDigitScroll.contentOffset = CGPointMake(0, CGRectGetHeight(self.bounds) * CGFloat(num))
            
 //            UIView.animateWithDuration(1, animations: { () -> Void in
@@ -67,7 +66,6 @@ class SliderLabelContainer: UIView {
 //            })
         }
         else if scrollType == .HundredDigitType{
-            
             self.singleDigitScroll.contentOffset = CGPointMake(0, CGRectGetHeight(self.bounds) * CGFloat(num))
             
 //            UIView.animateWithDuration(1.15, animations: { () -> Void in

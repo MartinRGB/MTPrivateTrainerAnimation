@@ -103,17 +103,6 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("customCell", forIndexPath: indexPath) as! CustomTableViewCell
 
         initCoachCell(cell,indexPath: indexPath)
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
         return cell
     }
     
@@ -122,32 +111,7 @@ class TableViewController: UITableViewController {
 
     //######## Function MARK:Cell Init Method ########
     func initCoachCell(cell:CustomTableViewCell,indexPath:NSIndexPath){
-        
-        cell.courseNameLabel?.text = feedData[indexPath.row].courseName
-        cell.teacherNameLabel?.text = feedData[indexPath.row].coachName
-        cell.avatarImageView?.image = feedData[indexPath.row].coachAvatar
-       
-        cell.classLabel?.textColor = feedData[indexPath.row].primaryColor
-        cell.finishedLabel?.textColor = feedData[indexPath.row].primaryColor
-        cell.processingBarView.backgroundColor = feedData[indexPath.row].primaryColor
-        cell.totalProcessingBarView.backgroundColor = feedData[indexPath.row].alphaColor
-        cell.totalClassLabel?.text = "of \(feedData[indexPath.row].totalClass)"
-        
-        //Imp:Progress Bar & Number
-        
-        cell.totalProcessingBarView.clipsToBounds = true
-        cell.cellDuringColor = feedData[indexPath.row].primaryColor
         cell.feed = feedData[indexPath.row]
-        
-        //是否重复刷
-//        let initNum:Int = 0
-//        let initNum2:Int = 0
-//        cell.processingBarView.transform = CGAffineTransformMakeTranslation(0, 0)
-//        cell.startLoadNumber(initNum)
-//        cell.startLoadStudentNumber(initNum2)
-        
-       
-        
     }
     
     
