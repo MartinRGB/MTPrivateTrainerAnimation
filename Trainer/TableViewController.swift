@@ -146,6 +146,7 @@ class TableViewController: UITableViewController {
 //        cell.startLoadNumber(initNum)
 //        cell.startLoadStudentNumber(initNum2)
         
+       
         
     }
     

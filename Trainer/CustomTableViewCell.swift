@@ -40,6 +40,7 @@ class CustomTableViewCell: UITableViewCell {
         totalStudentView.addSubview(tenStudentConatiner)
         totalStudentView.addSubview(singleStudentConatiner)
         
+        
         // Initialization code
     }
     
@@ -49,10 +50,11 @@ class CustomTableViewCell: UITableViewCell {
         
         tensSliderContainer = SliderLabelContainer(frame: CGRectMake(6, 22, 35, 45), type: SliderLabelContainerType.TensDigitType,fontsize:54,color:cellDuringColor)
         singleSliderContainer = SliderLabelContainer(frame: CGRectMake(34, 22, 36, 45), type: SliderLabelContainerType.SingleDigitType,fontsize:54,color:cellDuringColor)
+        
         classDataView.addSubview(tensSliderContainer)
         classDataView.addSubview(singleSliderContainer)
         
-        UIView.animateWithDuration(1, delay:0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0.15 + 1, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             
             self.processingBarView.transform = CGAffineTransformMakeTranslation(self.totalProcessingBarView.frame.size.width * self.feed.process, 0)
             
@@ -64,6 +66,9 @@ class CustomTableViewCell: UITableViewCell {
             
             
             },completion: nil)
+        
+        
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
