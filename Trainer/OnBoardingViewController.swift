@@ -20,14 +20,14 @@ class OnBoardingViewController: UIViewController {
     
     let arrow:UIImageView! = UIImageView()
     let explore:UIImageView! = UIImageView()
+    let addImageView:UIImageView! = UIImageView()
+    let fakeTabBarImageView:UIImageView = UIImageView()
     
     let wave:CAShapeLayer! = CAShapeLayer()
     let waveforCard:CAShapeLayer! = CAShapeLayer()
     var rectangleFABLayer:CAShapeLayer! = CAShapeLayer()
     var rectangleBlurFABLayer:CAShapeLayer! = CAShapeLayer()
     
-    //var maskPath:UIBezierPath! = UIBezierPath()
-    //var maskPathforCard:UIBezierPath! = UIBezierPath()
     var rectanglePath:UIBezierPath! = UIBezierPath()
     var rectangleBlurPath:UIBezierPath! = UIBezierPath()
     
@@ -39,28 +39,52 @@ class OnBoardingViewController: UIViewController {
     
     let tapRec:UITapGestureRecognizer = UITapGestureRecognizer()
     
-    var repeatNumber:CGFloat = 0.026
-    
-    
-    //######## MARK:ViewDidLoad ########
+    //######## Setup MARK:ViewDidLoad ########
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         
         
     }
     
-    //######## MARK:ViewWillAppear ########
+    //######## Setup MARK:ViewWillAppear ########
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        recycleAnimation()
         setup()
-        animationSetup()
         drawFABinView()
+        animationSetup()
         animationFABSetup()
         
     }
-
+    
+    //######## Setup MARK:cycle Animation ########
+    func recycleAnimation()
+    {
+        fakeTabBarImageView.removeFromSuperview()
+        card0.layer.removeAllAnimations()
+        card1.layer.removeAllAnimations()
+        card2.layer.removeAllAnimations()
+        card3.layer.removeAllAnimations()
+        waveMaskView.layer.removeAllAnimations()
+        waveMaskViewforCard.layer.removeAllAnimations()
+        containerViewForFAB.layer.removeAllAnimations()
+        rectangleBlurFABLayer.removeAllAnimations()
+        rectangleFABLayer.removeAllAnimations()
+        arrow.layer.removeAllAnimations()
+        explore.layer.removeAllAnimations()
+        wave.removeAllAnimations()
+        addImageView.layer.removeAllAnimations()
+        
+    }
+    //######## Setup MARK:hide The Status Bar ########
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    
     //######## Setup MARK:Setup Asset ########
     func setup(){
         
@@ -69,7 +93,7 @@ class OnBoardingViewController: UIViewController {
         bgDown.image = UIImage(named: "bgDown")
         self.view.addSubview(bgDown)
         
-        bgUp.frame = CGRectMake(0,0,self.view.frame.size.width * 2.965,self.view.frame.size.height*1.043)
+        bgUp.frame = CGRectMake(0,0,self.view.bounds.size.width,self.view.bounds.size.height)
         bgUp.image = UIImage(named: "RealBG")
         self.view.addSubview(bgUp)
         
@@ -125,6 +149,7 @@ class OnBoardingViewController: UIViewController {
         
     }
     
+   
     //######## Anim MARK:Setup Animation ########
     func animationSetup(){
         
@@ -289,28 +314,31 @@ class OnBoardingViewController: UIViewController {
         containerViewForFAB.layer.addSublayer(rectangleBlurFABLayer)
         containerViewForFAB.layer.addSublayer(rectangleFABLayer)
         
-        //Arrow & Text Image
+        //Arrow & Text & Add Image
         arrow.image = UIImage(named: "Arrow")
         arrow.frame = CGRectMake(self.view.frame.size.width/2 - self.view.frame.size.width * 0.0425, self.view.frame.size.height * 0.918, self.view.frame.size.width * 0.085, self.view.frame.size.width * 0.045)
         
-        containerViewForFAB.addSubview(arrow)
-        
         explore.image = UIImage(named: "Explore")
         explore.frame = CGRectMake(self.view.frame.size.width/2 - self.view.frame.size.width * 0.3595, self.view.frame.size.height * 0.921, self.view.frame.size.width * 0.211, self.view.frame.size.width * 0.067)
-        explore.transform = CGAffineTransformMakeScale(0.8, 0.8)
-        
-        
+    
+        addImageView.image = UIImage(named: "Add")
+        addImageView.frame = CGRectMake(self.view.frame.size.width * (0.5 - 0.0826/2) , 0.918 * self.view.frame.size.height, 0.0826 * self.view.frame.size.width, 0.0826 * self.view.frame.size.width)
+        addImageView.layer.transform = CATransform3DMakeScale(0, 0, 0)
         
         //Add to Superview & Setting
+        containerViewForFAB.addSubview(arrow)
         containerViewForFAB.addSubview(explore)
+        containerViewForFAB.addSubview(addImageView)
         containerViewForFAB.alpha = 0.8
         
         CGContextRestoreGState(context)
+        
         
     }
     
     //######## Anim MARK:Animate FAB Button ########
     func animationFABSetup() {
+        
         
         let initTime = CACurrentMediaTime() + 0.45 + 1/6
         
@@ -400,38 +428,57 @@ class OnBoardingViewController: UIViewController {
         explore.layer.addAnimation(textpositon, forKey: "maskViewY")
         
         //Setting Tapping Event
+        containerViewForFAB.userInteractionEnabled = false
+        
+        delay(1.45 + 1/3) { () -> () in
+            
+            self.containerViewForFAB.userInteractionEnabled = true
+            
+        }
         containerViewForFAB.addGestureRecognizer(tapRec)
-        tapRec.addTarget(self, action: "tappedFAB")
+        
+        //必须有冒号，这里注意一下
+        tapRec.addTarget(self, action: Selector("tappedFAB:"))
         
         //Wave Loop Shaking
-        
         UIView.animateWithDuration(3, delay: 0.2, options: [.Autoreverse,.Repeat,.CurveEaseOut], animations: {
             
             self.waveMaskView.frame = CGRectMake(0,-(0.970) * self.view.frame.height,self.view.frame.width,(0.970) * self.view.frame.height)
             
-        
-        }, completion: nil)
+            
+            }, completion: nil)
        
     }
     
+    
     //######## Delegate MARK:tapped FAB ########
-    func tappedFAB(){
+    func tappedFAB(sender:UITapGestureRecognizer){
+        
+        
         
         containerViewForFAB.userInteractionEnabled = false
+        
         print("tapped")
         
         //One:AddKeyframeAnimation
         let pathAnim = CAKeyframeAnimation(keyPath: "path")
         pathAnim.duration = 1.7
-        pathAnim.keyTimes = [0,0.388,1]
-        pathAnim.values = [createOriginalBGMask(),createOneChangedBGMask(),createTwoChangedBGMask()]
-        pathAnim.timingFunctions = [CAMediaTimingFunction(controlPoints: 0.33, 0, 0.66, 1),CAMediaTimingFunction(controlPoints: 0.33, 0, 0.83, 1)]
+        pathAnim.keyTimes = [0,0.287,0.739,1]
+        pathAnim.values = [createOriginalBGMask(),createOneChangedBGMask(),createTwoChangedBGMask(),createThreeChangedBGMask()]
+        pathAnim.timingFunctions = [CAMediaTimingFunction(controlPoints: 0.33, 0, 0.66, 1),CAMediaTimingFunction(controlPoints: 0.33, 0, 0.83, 1),CAMediaTimingFunction(controlPoints: 0.33, 0, 0.66, 1)]
         pathAnim.removedOnCompletion = false
         pathAnim.autoreverses = false
         pathAnim.fillMode = kCAFillModeForwards
         pathAnim.additive = true
         
         wave.addAnimation(pathAnim, forKey: "Path")
+        
+        //****
+        delay(2/2) { () -> () in
+            self.fakeTabBarImageView.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: 65/667 * self.view.frame.height)
+            self.fakeTabBarImageView.image = UIImage(named:"FakeTopBar")
+            self.view.insertSubview(self.fakeTabBarImageView, belowSubview: self.waveMaskView)
+        }
         
         //Two:maskBG
         
@@ -440,7 +487,7 @@ class OnBoardingViewController: UIViewController {
             let maskViewY = CABasicAnimation(keyPath: "transform.translation.y")
             maskViewY.duration = 1.2
             maskViewY.fromValue = 0.954 * self.view.frame.height
-            maskViewY.toValue = 0.0897 * self.view.frame.height
+            maskViewY.toValue = 0.0497 * self.view.frame.height
             maskViewY.removedOnCompletion = false
             maskViewY.autoreverses = false
             maskViewY.fillMode = kCAFillModeForwards
@@ -516,17 +563,11 @@ class OnBoardingViewController: UIViewController {
         arrow.layer.addAnimation(arrowPosition, forKey: "maskViewY")
         
         //Six:Add scale & rotate
-        let addImageView:UIImageView = UIImageView()
-        addImageView.image = UIImage(named: "Add")
-        addImageView.frame = CGRectMake(self.view.frame.size.width * (0.5 - 0.0826/2) , 0.918 * self.view.frame.size.height, 0.0826 * self.view.frame.size.width, 0.0826 * self.view.frame.size.width)
-        addImageView.transform = CGAffineTransformMakeScale(0, 0)
-        containerViewForFAB.addSubview(addImageView)
         
-        
-        let addScale = CABasicAnimation(keyPath: "transform.scale")
+        let addScale = CABasicAnimation(keyPath: "transform")
         addScale.beginTime = CACurrentMediaTime() + 1/6
         addScale.duration = 0.6
-        addScale.fromValue = NSValue(CATransform3D:CATransform3DMakeScale(0, 0, 1.0))
+        addScale.fromValue = NSValue(CATransform3D:CATransform3DMakeScale(0, 0, 0))
         addScale.toValue = NSValue(CATransform3D:CATransform3DMakeScale(1, 1, 1.0))
         addScale.removedOnCompletion = false
         addScale.autoreverses = false
@@ -647,6 +688,24 @@ class OnBoardingViewController: UIViewController {
             self.card3.layer.addAnimation(card3CommonAnims, forKey: "transform")
         }
         
+        
+        
+        delay(8/15 + 0.7) { () -> () in
+        self.performSegueWithIdentifier("PushSegue", sender: nil)
+        self.waveMaskView.layer.removeAllAnimations()
+        }
+        
+    }
+    
+    
+    //######## Function MARK:Delay Method ########
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
     }
     
     //######## Function MARK:Create Wave Shape Function########
@@ -672,16 +731,6 @@ class OnBoardingViewController: UIViewController {
         
         CGContextRestoreGState(context)
         return path
-    }
-    
-    //######## Function MARK:Delay Method ########
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
     }
     
     //######## Drawing MARK: BezierDrawing for BG Wave Mask ########
@@ -830,11 +879,45 @@ class OnBoardingViewController: UIViewController {
         
     }
     
-    
-
-    
-    
-
+    func createThreeChangedBGMask() -> CGPathRef{
+        
+        
+        let heightAdjust = (0.8943 + 15/667) * self.view.frame.height
+        
+        let np1:CGPoint = CGPointMake(0, 0)
+        let np2:CGPoint = CGPointMake(375/375 * self.view.frame.size.width, 0)
+        let np3:CGPoint = CGPointMake(461/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np3cp1:CGPoint = CGPointMake(375/375 * self.view.frame.size.width, 0 + heightAdjust)
+        let np3cp2:CGPoint = CGPointMake(461/375 * self.view.frame.size.width, -85/667 * self.view.frame.size.height + heightAdjust)
+        let np4:CGPoint = CGPointMake(375/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np4cp1:CGPoint = CGPointMake(428.06/375 * self.view.frame.size.width, 77.74/667 * self.view.frame.size.height + heightAdjust)
+        let np4cp2:CGPoint = CGPointMake(398.57/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np5:CGPoint = CGPointMake(292/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np5cp1:CGPoint = CGPointMake(354/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np5cp2:CGPoint = CGPointMake(322/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np6:CGPoint = CGPointMake(199/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np6cp1:CGPoint = CGPointMake(259.65/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np6cp2:CGPoint = CGPointMake(225/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np7:CGPoint = CGPointMake(88/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np7cp1:CGPoint = CGPointMake(173.33/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np7cp2:CGPoint = CGPointMake(119/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np8:CGPoint = CGPointMake(0/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np8cp1:CGPoint = CGPointMake(63.39/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np8cp2:CGPoint = CGPointMake(33.73/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np9:CGPoint = CGPointMake(-113.5/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np9cp1:CGPoint = CGPointMake(-34/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np9cp2:CGPoint = CGPointMake(-84.92/375 * self.view.frame.size.width, 64/667 * self.view.frame.size.height + heightAdjust)
+        let np10:CGPoint = CGPointMake(0, 0 + heightAdjust)
+        let np10cp1:CGPoint = CGPointMake(-113.5/375 * self.view.frame.size.width, 66.5/667 * self.view.frame.size.height + heightAdjust)
+        let np10cp2:CGPoint = CGPointMake(0,0 + heightAdjust)
+        
+        let threeChangedBGMask:UIBezierPath = self.createMaskPath(np1,point2: np2,point3: np3,point3cp1: np3cp1,point3cp2: np3cp2,point4: np4,point4cp1: np4cp1,point4cp2: np4cp2,point5: np5,point5cp1: np5cp1,point5cp2: np5cp2,point6: np6,point6cp1: np6cp1,point6cp2: np6cp2,point7: np7,point7cp1: np7cp1,point7cp2: np7cp2,point8: np8,point8cp1: np8cp1,point8cp2: np8cp2,point9: np9,point9cp1: np9cp1,point9cp2: np9cp2,point10: np10,point10cp1: np10cp1,point10cp2: np10cp2)
+        
+        return threeChangedBGMask.CGPath
+        
+        
+        
+    }
     
 
 }

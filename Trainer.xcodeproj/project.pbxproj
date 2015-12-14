@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0931FE1C1D8F01006D52AD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0931FD1C1D8F01006D52AD /* CustomTableViewCell.swift */; };
 		2E9D6A541BF3382300BCCE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */; };
 		2E9D6A561BF3382300BCCE55 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */; };
 		2E9D6A591BF3382300BCCE55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D6A571BF3382300BCCE55 /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		2E9D6A5E1BF3382300BCCE55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D6A5C1BF3382300BCCE55 /* LaunchScreen.storyboard */; };
 		2E9D6A691BF3382300BCCE55 /* TrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A681BF3382300BCCE55 /* TrainerTests.swift */; };
 		2E9D6A741BF3382300BCCE55 /* TrainerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A731BF3382300BCCE55 /* TrainerUITests.swift */; };
+		2EA4E2441C118DE9007B50DD /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA4E2431C118DE9007B50DD /* CustomTransition.swift */; };
+		2ED6948E1BFDAA6800FBAD39 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED6948D1BFDAA6800FBAD39 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E0931FD1C1D8F01006D52AD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2E9D6A501BF3382300BCCE55 /* Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		2E9D6A6F1BF3382300BCCE55 /* TrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrainerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D6A731BF3382300BCCE55 /* TrainerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerUITests.swift; sourceTree = "<group>"; };
 		2E9D6A751BF3382300BCCE55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EA4E2431C118DE9007B50DD /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		2ED6948D1BFDAA6800FBAD39 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,9 @@
 			children = (
 				2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */,
 				2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */,
+				2ED6948D1BFDAA6800FBAD39 /* TableViewController.swift */,
+				2EA4E2431C118DE9007B50DD /* CustomTransition.swift */,
+				2E0931FD1C1D8F01006D52AD /* CustomTableViewCell.swift */,
 				2E9D6A571BF3382300BCCE55 /* Main.storyboard */,
 				2E9D6A5A1BF3382300BCCE55 /* Assets.xcassets */,
 				2E9D6A5C1BF3382300BCCE55 /* LaunchScreen.storyboard */,
@@ -257,7 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E9D6A561BF3382300BCCE55 /* OnBoardingViewController.swift in Sources */,
+				2E0931FE1C1D8F01006D52AD /* CustomTableViewCell.swift in Sources */,
+				2ED6948E1BFDAA6800FBAD39 /* TableViewController.swift in Sources */,
 				2E9D6A541BF3382300BCCE55 /* AppDelegate.swift in Sources */,
+				2EA4E2441C118DE9007B50DD /* CustomTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
