@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E0931FE1C1D8F01006D52AD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0931FD1C1D8F01006D52AD /* CustomTableViewCell.swift */; };
+		2E441A6C1C1FA87000FFC895 /* UIColors+FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E441A6B1C1FA87000FFC895 /* UIColors+FloatingMenu.swift */; };
+		2E441A6E1C1FAED800FFC895 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E441A6D1C1FAED800FFC895 /* FloatingButton.swift */; };
 		2E9D6A541BF3382300BCCE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */; };
 		2E9D6A561BF3382300BCCE55 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */; };
 		2E9D6A591BF3382300BCCE55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E9D6A571BF3382300BCCE55 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		2E0931FD1C1D8F01006D52AD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		2E441A6B1C1FA87000FFC895 /* UIColors+FloatingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColors+FloatingMenu.swift"; sourceTree = "<group>"; };
+		2E441A6D1C1FAED800FFC895 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		2E9D6A501BF3382300BCCE55 /* Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9D6A531BF3382300BCCE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E9D6A551BF3382300BCCE55 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E441A6F1C1FC4E100FFC895 /* FAB */ = {
+			isa = PBXGroup;
+			children = (
+				2E441A6B1C1FA87000FFC895 /* UIColors+FloatingMenu.swift */,
+				2E441A6D1C1FAED800FFC895 /* FloatingButton.swift */,
+			);
+			name = FAB;
+			sourceTree = "<group>";
+		};
 		2E9D6A471BF3382300BCCE55 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +124,7 @@
 				2ED6948D1BFDAA6800FBAD39 /* TableViewController.swift */,
 				2EA4E2431C118DE9007B50DD /* CustomTransition.swift */,
 				2EA5A5AC1C1E8A6E0018DBA6 /* DataModel.swift */,
+				2E441A6F1C1FC4E100FFC895 /* FAB */,
 				2E0931FD1C1D8F01006D52AD /* CustomTableViewCell.swift */,
 				2EA5A5AF1C1E926F0018DBA6 /* SliderLabelContainer.swift */,
 				2E9D6A571BF3382300BCCE55 /* Main.storyboard */,
@@ -273,6 +287,8 @@
 			files = (
 				2E9D6A561BF3382300BCCE55 /* OnBoardingViewController.swift in Sources */,
 				2E0931FE1C1D8F01006D52AD /* CustomTableViewCell.swift in Sources */,
+				2E441A6E1C1FAED800FFC895 /* FloatingButton.swift in Sources */,
+				2E441A6C1C1FA87000FFC895 /* UIColors+FloatingMenu.swift in Sources */,
 				2ED6948E1BFDAA6800FBAD39 /* TableViewController.swift in Sources */,
 				2EA5A5B01C1E926F0018DBA6 /* SliderLabelContainer.swift in Sources */,
 				2E9D6A541BF3382300BCCE55 /* AppDelegate.swift in Sources */,

@@ -52,6 +52,8 @@ class OnBoardingViewController: UIViewController {
         super.viewWillAppear(true)
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+
         recycleAnimation()
         setup()
         drawFABinView()
@@ -292,6 +294,7 @@ class OnBoardingViewController: UIViewController {
         
         containerViewForFAB.frame = CGRectMake(self.view.frame.size.width/2 - self.view.frame.size.width * 0.281, 0.873 * self.view.frame.size.height, self.view.frame.size.width * 0.562, self.view.frame.size.width * 0.155)
         self.view.addSubview(containerViewForFAB)
+        //self.navigationController!.view.addSubview(containerViewForFAB)
         
         //FAB Path
         rectanglePath = UIBezierPath(roundedRect: CGRectMake(self.view.frame.size.width/2 - self.view.frame.size.width * 0.084, self.view.frame.size.height * 0.883, self.view.frame.size.width * 0.168, self.view.frame.size.width * 0.168), cornerRadius: self.view.frame.size.width * 0.084)
@@ -304,11 +307,11 @@ class OnBoardingViewController: UIViewController {
         
         //ShapeLayer(Base & Blur)
         self.rectangleFABLayer.path = rectanglePath.CGPath
-        rectangleFABLayer.fillColor = UIColor(red: 0.482, green: 0.741, blue: 0.894, alpha: 1.000).CGColor
+        rectangleFABLayer.fillColor = UIColor.fabBlueColor.CGColor
         rectangleFABLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         
         rectangleBlurFABLayer.path = rectangleBlurPath.CGPath
-        rectangleBlurFABLayer.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.07).CGColor
+        rectangleBlurFABLayer.fillColor = UIColor.fabShadowColor.CGColor
         rectangleBlurFABLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         
         containerViewForFAB.layer.addSublayer(rectangleBlurFABLayer)

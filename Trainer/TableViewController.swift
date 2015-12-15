@@ -16,10 +16,26 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var menuIcon: UIBarButtonItem!
     @IBOutlet weak var glassIcon: UIBarButtonItem!
     
+    
+    let fab = FloatingButton()
     var isHidden:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK:add the FAB
+        if let image = UIImage(named: "Add2.png"){
+            fab.setImage(image, forState: .Normal)
+        }
+    
+        fab.frame = CGRectMake(0.895*self.view.bounds.width - 50, 0.945*self.view.bounds.height-50, 50, 50)
+        fab.alpha = 0.8
+        //Way to add target for btn
+        fab.addTarget(self, action: "FABonclick:", forControlEvents: UIControlEvents.TouchUpInside)
+        //Pin The Fab,disable the FAB scroll effect
+        self.navigationController!.view.addSubview(fab)
+        
+        
 
         //Mark:Show the Nav Bar
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -130,6 +146,10 @@ class TableViewController: UITableViewController {
                 Int64(delay * Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), closure)
+    }
+    
+    func FABonclick(sender:UITapGestureRecognizer){
+        print("Jesus")
     }
 
 }

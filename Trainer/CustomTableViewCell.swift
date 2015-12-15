@@ -29,9 +29,9 @@ class CustomTableViewCell: UITableViewCell {
     var tensSliderContainer:SliderLabelContainer!
     var singleSliderContainer:SliderLabelContainer!
     
-    var hundredStudentConatiner = SliderLabelContainer(frame: CGRectMake(-3, 21, 26, 30), type: SliderLabelContainerType.HundredDigitType,fontsize:36,color:UIColor(red: 78/255.0, green: 107/255.0, blue: 128/255.0, alpha: 1))
-    var tenStudentConatiner = SliderLabelContainer(frame: CGRectMake(15, 21, 26, 30), type: SliderLabelContainerType.TensDigitType,fontsize:36,color:UIColor(red: 78/255.0, green: 107/255.0, blue: 128/255.0, alpha: 1))
-    var singleStudentConatiner = SliderLabelContainer(frame: CGRectMake(34, 21, 26, 30), type: SliderLabelContainerType.SingleDigitType,fontsize:36,color:UIColor(red: 78/255.0, green: 107/255.0, blue: 128/255.0, alpha: 1))
+    var hundredStudentConatiner = SliderLabelContainer(frame: CGRectMake(-3, 21, 26, 30), type: SliderLabelContainerType.HundredDigitType,fontsize:36,color:UIColor.deepBlueColor)
+    var tenStudentConatiner = SliderLabelContainer(frame: CGRectMake(15, 21, 26, 30), type: SliderLabelContainerType.TensDigitType,fontsize:36,color:UIColor.deepBlueColor)
+    var singleStudentConatiner = SliderLabelContainer(frame: CGRectMake(34, 21, 26, 30), type: SliderLabelContainerType.SingleDigitType,fontsize:36,color:UIColor.deepBlueColor)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -74,7 +74,7 @@ class CustomTableViewCell: UITableViewCell {
         classDataView.addSubview(tensSliderContainer)
         classDataView.addSubview(singleSliderContainer)
         
-        UIView.animateWithDuration(1, delay: 0.2, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0.15 , options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             
             self.processingBarView.transform = CGAffineTransformMakeTranslation(self.totalProcessingBarView.frame.size.width * self.feed.process, 0)
             
